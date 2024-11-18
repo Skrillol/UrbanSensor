@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Enlace a Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Dashboard - Urban Sensor</title>
+    <link rel="stylesheet" href="newUser.css">
+</head>
+
+<body class="aside">
+    <div class="bg-transparent" style="width: 10px ; height: 10px;"></div>
+    <aside>
+        <div class="titulo">
+            <div>Creacion de nuevo Usuario</div>
+            <div class="linea-horizontal"></div>
+        </div>
+    </aside>
+    <div class="bg-transparent" style="width: 10px ; height: 10px;"></div>
+    <main class="main">
+        <div class="header">
+            <div class="blocke">
+                <label for="email">Nombre:</label><br>
+                <input type="email" id="email" style="width: 100%;"><br><br>
+                <label for="email">Apellido:</label><br>
+                <input type="email" id="email" style="width: 100%;"><br><br>
+                <label for="email">RUT:</label><br>
+                <input type="email" id="email" style="width: 100%;"><br><br>
+                <label for="email">Numero de Contacto:</label><br>
+                <input type="email" id="email" style="width: 100%;"><br><br>
+            </div>
+            <div class="linea-vertical"></div>
+            <div class="blocke">
+                <label for="email">Correo electronico:</label><br>
+                <input type="email" id="email" style="width: 100%;"><br><br>
+
+                <label for="mensaje">Dirección:</label><br>
+                <textarea id="mensaje" rows="4" style="width: 100%;"></textarea><br><br>
+            </div>
+        </div>  
+        <div class="bg-transparent" style="width: 10px ; height: 10px;"></div>
+        
+        <div class="header">
+            <div class="blocke">
+                <label for="departamento">Selecciona un Departamento:</label>
+                <select id="departamento">
+                  <option value="departamento1">departamento 1</option>
+                  <option value="departamento2">departamento 2</option>
+                  <option value="departamento3">departamento 3</option>
+                </select>
+    
+                <label for="ROll">Selecciona un ROll:</label>
+                <select id="ROll">
+                  <option value="ROll1">ROll 1</option>
+                  <option value="ROll2">ROll 2</option>
+                  <option value="ROll3">ROll 3</option>
+                </select>
+            </div>
+                <div class="linea-vertical"></div>
+                <div class="blocke">
+                    Bloke para rellenar XD
+                </div>
+            </div>
+
+
+        </div>
+
+    </main>
+
+           <div class="d-flex">
+            <button class="btnNuevo btn" type="submit" onclick="window.location.href='userGest.html'">Volver</button>
+            <div class="bg-transparent" style="width: 100vh; height: 50px;"></div>
+            <button class="btnNuevo btn" type="submit" onclick="window.location.href='userLoad.html'">Guardar</button>
+        </div> 
+
+
+</body>

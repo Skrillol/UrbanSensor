@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Director</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <section class="container-fluid fondo">
+        <h1 class="text-center text-black">Gestión de Formularios</h1>
+        <div class="row my-4">
+            <div class="barra py-2">
+                <div class="dowTable">
+                    <div class="col-md-7">
+                        <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <img title="Agregar" src="https://cdn.icon-icons.com/icons2/2346/PNG/512/add_insert_new_plus_button_icon_142943.png" height="30px"> Agregar
+                        </button>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="d-flex align-items-center ms-3">
+                            <label for="Buscar" class="me-3">
+                                <h5 class="text-black">Buscar:</h5>
+                            </label>
+                            <input type="text" id="Buscar" class="form-control" placeholder="Nombre de Formulario" style="min-width: 308px;">
+                        </div>
+                    </div>
+                    <div class="controlsr">
+                            <button class=" btn"> <img src="https://cdn-icons-png.freepik.com/512/16769/16769111.png?ga=GA1.1.179875866.1728243059" title="Filtrar" height="20px"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th class="centrado col-md-2">Nombre Formulario</th>
+                    <th class="centrado col-md-2">Fecha de Creación</th>
+                    <th class="centrado col-md-4">Descripción</th>
+                    <th class="centrado col-md-4">Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="centrado">Formulario 01</td>
+                    <td class="centrado">25-12-2023</td>
+                    <td >Descripción Breve</td>
+                    <td class="right">
+                        <button class="btn btn-secondary">
+                            <img title="Editar" src="https://cdn-icons-png.freepik.com/512/6048/6048999.png?ga=GA1.1.179875866.1728243059" height="20px"> Editar
+                        </button>
+                        <button class="toggleButton btn btn-secondary">
+                            Desactivado
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="centrado">Formulario 02</td>
+                    <td class="centrado">10-12-2023</td>
+                    <td >Descripción Breve</td>
+                    <td class="right">
+                        <button class="btn btn-secondary">
+                            <img title="Editar" src="https://cdn-icons-png.freepik.com/512/6048/6048999.png?ga=GA1.1.179875866.1728243059" height="20px"> Editar
+                        </button>
+                        <button class="toggleButton btn btn-secondary">
+                            Desactivado
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="centrado">Formulario 03</td>
+                    <td class="centrado">03-12-2023</td>
+                    <td >Descripción Breve</td>
+                    <td class="right">
+                        <button class="btn btn-secondary">
+                            <img title="Editar" src="https://cdn-icons-png.freepik.com/512/6048/6048999.png?ga=GA1.1.179875866.1728243059" height="20px"> Editar
+                        </button>
+                        <button class="toggleButton btn btn-secondary">
+                            Desactivado
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="centrado">Formulario 04</td>
+                    <td class="centrado">25-09-2024</td>
+                    <td >Descripción Breve</td>
+                    <td class="right">
+                        <button class="btn btn-secondary">
+                            <img title="Editar" src="https://cdn-icons-png.freepik.com/512/6048/6048999.png?ga=GA1.1.179875866.1728243059" height="20px"> Editar
+                        </button>
+                        <button class="toggleButton btn btn-secondary">
+                            Desactivado
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <table class="table table-bordered table-striped">
+            <tbody>
+                <tr>
+                    <td class="dowTable">
+                        <div class="controlsr">
+                            <span>Mostrando</span>
+                            <select class="form-select form-select-sm w-auto">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                            <span>Registros</span>
+                        </div>
+                        <div class="controls">
+                            <button class="btn btn-secondary btn-sm">Anterior</button>
+                            <input type="text" value="1" class="form-control form-control-sm text-center w-auto">
+                            <button class="btn btn-secondary btn-sm">Siguiente</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="controls my-4">
+            <div class="d-grid gap-2 col-md-3">
+                <button class="btn btn-dark" type="button">Confirmar</button>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalLabel">Modal de prueba</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!--PREGUNTA 1-->
+                        <form class="was-validated">
+                            <div class="mb-2">
+                              <label for="validationpreguntas" class="form-label">Pregunta 1</label>
+                                <input class="form-control" id="validationpreguntas" placeholder="Pregunta 1" required></input>
+                              <div class="invalid-feedback">
+                                Mensaje Ingresado Invalido
+                              </div>
+                            </div>
+                            <div class="mb-2">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="validationFormCheck1" required>
+                                    <label class="form-check-label" for="validationFormCheck1">Alternativas</label>
+                                    <div class="valid-feedback">
+                                        <div class="form-check">
+                                            <select class="form-select" required aria-label="select example">
+                                                <option value="">N° Respuesta</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                            </select>
+                                        </div>
+                                      </div>
+                                </div>
+                            </div>
+                            <div class="mb-2">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="validationFormCheck2" required>
+                                    <label class="form-check-label" for="validationFormCheck2">Respuesta Libre</label>
+                                </div>
+                            </div>
+                            <!--PREGUNTA 2-->
+                            <div class="mb-2">
+                                <label for="validationpreguntas" class="form-label">Pregunta 2</label>
+                                  <input class="form-control" id="validationpreguntas" placeholder="Pregunta 2" required></input>
+                                <div class="invalid-feedback">
+                                  Mensaje Ingresado Invalido
+                                </div>
+                              </div>
+                              <div class="mb-2">
+                                  <div class="form-check">
+                                      <input type="checkbox" class="form-check-input" id="validationFormCheck1" required>
+                                      <label class="form-check-label" for="validationFormCheck1">Alternativas</label>
+                                      <div class="valid-feedback">
+                                          <div class="form-check">
+                                              <select class="form-select" required aria-label="select example">
+                                                  <option value="">N° Respuesta</option>
+                                                  <option value="2">2</option>
+                                                  <option value="3">3</option>
+                                                  <option value="4">4</option>
+                                              </select>
+                                          </div>
+                                        </div>
+                                  </div>
+                              </div>
+                              <div class="mb-2">
+                                  <div class="form-check">
+                                      <input type="checkbox" class="form-check-input" id="validationFormCheck2" required>
+                                      <label class="form-check-label" for="validationFormCheck2">Respuesta Libre</label>
+                                  </div>
+                              </div>
+                              <!--PREGUNTA 3-->
+                              <div class="mb-2">
+                                <label for="validationpreguntas" class="form-label">Pregunta 3</label>
+                                  <input class="form-control" id="validationpreguntas" placeholder="Pregunta 3" required></input>
+                                <div class="invalid-feedback">
+                                  Mensaje Ingresado Invalido
+                                </div>
+                              </div>
+                              <div class="mb-2">
+                                  <div class="form-check">
+                                      <input type="checkbox" class="form-check-input" id="validationFormCheck1" required>
+                                      <label class="form-check-label" for="validationFormCheck1">Alternativas</label>
+                                      <div class="valid-feedback">
+                                          <div class="form-check">
+                                              <select class="form-select" required aria-label="select example">
+                                                  <option value="">N° Respuesta</option>
+                                                  <option value="2">2</option>
+                                                  <option value="3">3</option>
+                                                  <option value="4">4</option>
+                                              </select>
+                                          </div>
+                                        </div>
+                                  </div>
+                              </div>
+                              <div class="mb-2">
+                                  <div class="form-check">
+                                      <input type="checkbox" class="form-check-input" id="validationFormCheck2" required>
+                                      <label class="form-check-label" for="validationFormCheck2">Respuesta Libre</label>
+                                  </div>
+                              </div>
+                             <!--PREGUNTA 4-->
+                              <div class="mb-2">
+                                <label for="validationpreguntas" class="form-label">Pregunta 4</label>
+                                  <input class="form-control" id="validationpreguntas" placeholder="Pregunta 4" required></input>
+                                <div class="invalid-feedback">
+                                  Mensaje Ingresado Invalido
+                                </div>
+                              </div>
+                              <div class="mb-2">
+                                  <div class="form-check">
+                                      <input type="checkbox" class="form-check-input" id="validationFormCheck1" required>
+                                      <label class="form-check-label" for="validationFormCheck1">Alternativas</label>
+                                      <div class="valid-feedback">
+                                          <div class="form-check">
+                                              <select class="form-select" required aria-label="select example">
+                                                  <option value="">N° Respuesta</option>
+                                                  <option value="2">2</option>
+                                                  <option value="3">3</option>
+                                                  <option value="4">4</option>
+                                              </select>
+                                          </div>
+                                        </div>
+                                  </div>
+                              </div>
+                              <div class="mb-2">
+                                  <div class="form-check">
+                                      <input type="checkbox" class="form-check-input" id="validationFormCheck2" required>
+                                      <label class="form-check-label" for="validationFormCheck2">Respuesta Libre</label>
+                                  </div>
+                              </div>
+                              <div class="mb-3">
+                                  <label class="form-check-label" for="validationFormCheck3">Adjuntar Evidencia</h5>
+                                  <input type="file" id="" class="form-control" aria-label="file example" required>
+                                  <div class="invalid-feedback">Example invalid form file feedback</div>
+                              </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary" href="#">Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+
+        // Evento para cambiar el estado del botón
+            // Seleccionar todos los botones con la clase 'toggleButton'
+        const toggleButtons = document.querySelectorAll('.toggleButton');
+
+        // Añadir el evento de clic a cada botón
+        toggleButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Alternar estado del botón (activado/desactivado)
+            if (button.classList.contains('btn-secondary')) {
+                button.classList.remove('btn-secondary'); // Cambiar a estilo activado
+                button.classList.add('btn-primary');
+                button.textContent = 'Activado'; // Cambiar texto a activado
+            } else {
+                button.classList.remove('btn-primary'); // Cambiar a estilo desactivado
+                button.classList.add('btn-secondary');
+                button.textContent = 'Desactivado'; // Cambiar texto a desactivado
+            }
+        });
+    });
+
+    // Evento para cambiar el estado de los checkboxes
+    const checkboxAlternativas = document.getElementById('validationFormCheck1');
+        const checkboxLibre = document.getElementById('validationFormCheck2');
+
+        function toggleRequired() {
+            if (checkboxAlternativas.checked) {
+                checkboxLibre.required = false;
+            } else {
+                checkboxLibre.required = true;
+            }
+            
+            if (checkboxLibre.checked) {
+                checkboxAlternativas.required = false;
+            } else {
+                checkboxAlternativas.required = true;
+            }
+        }
+
+        checkboxAlternativas.addEventListener('change', toggleRequired);
+        checkboxLibre.addEventListener('change', toggleRequired);
+
+    </script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

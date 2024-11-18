@@ -1,0 +1,93 @@
+/* tablas */
+table{
+    border: solid 2px #000000;
+    font-size: 16px;
+    table-layout: fixed;
+    width: 100%;
+}
+
+thead{
+    background: #D9D9D9;
+}
+
+th{
+    padding: 0px 15px;
+    height: 50px;
+    border: solid 2px #000000;
+}
+
+td{
+    padding: 0px 13px;
+    border: solid 1px #000000;
+}
+
+/* Botones */
+.btnNuevo{
+    background: #64687D;
+    color: #ffffff;
+}
+.btnSubir{
+    background: #000000;
+    color: #ffffff;
+}
+.btnTabla{
+    float: right;
+    background: #ffffff;
+    color: #000000;
+    border-color: #000000;
+}
+.dowTable{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+/*MODAL*/
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,4);
+}
+.modal-content{
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+.close{
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,.close:focus{
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+.modal-content input{
+    margin-bottom: 0.5em;
+}
+.btnGuardar{
+    border-color: #000000;
+    width: 50%;
+    align-self: center;
+}
+.modal-content input:focus::placeholder{
+    color: transparent;
+}
+.codigoPais{
+    margin-top: 0.1em;
+    margin-right: 0.5em;
+}
+.numeroTelefonico input{
+    width: 100%;
+}

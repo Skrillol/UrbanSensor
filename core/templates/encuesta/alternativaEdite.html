@@ -1,0 +1,74 @@
+{% extends "./base.html" %}
+
+{% block tabla %}
+
+<div class="card">
+    <h5 class="card-header">Creacio de Encuesta</h5>
+        <div class="card-body">
+
+            <div class="row">
+                <div class="bg-danger col-sm-5">
+                    <div class="card">
+                        <div class="card-body">
+                                <h5 class="card-title">Informacion de Encuesta</h5>
+                                <p class="card-text">Titulo: <h6>{{encuesta.titulo}}</h6></p>
+                                <label for="encuesta_descripcion">Descripción:</label><br>
+                                <textarea id="encuesta_descripcion" name="encuesta_descripcion" rows="5" cols="27" readonly>{{ encuesta.descripcion }}</textarea>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-dark col-sm-7">
+                    <!-- Información de la Pregunta -->
+                    <div class="card mb-3" style="width: 100%;">
+                        <div class="card-body">
+                            <h5 class="card-title">Información de Pregunta</h5>
+                            <div class="mb-3">
+                                <label for="id_pregunta" class="form-label"><strong>ID de la Pregunta:   </strong>{{pregunta.id}}</label>
+                            </div>
+                            <p class="card-text">
+                                <strong>Título de la Pregunta:</strong> {{pregunta.texto}}
+                            </p>
+                            <p class="card-text">
+                                <strong>Tipo de Respuesta:</strong> {{pregunta.tipo_respuesta}}
+                            </p>
+                        </div>
+                    </div>
+            
+                    <form method="post" action="/alternativaEdit2" id="form-alternativas">
+                        {% csrf_token %}
+                        
+                        <div class="card mt-3 alternative-card" style="width: 100%;">
+                            <div class="card-body">
+                                <h5 class="card-title">Información de Alternativa</h5>
+                                <div class="mb-3">
+                                    <input type="hidden" name="id_alternativa" id="id_alternativa" value="{{alternativa.id}}">
+                                    <label for="pregunta_titulo" class="form-label">Título de la Alternativa:</label>
+                                    <input type="text" class="form-control alternativa-input" id="alternativa_texto" name="alternativa_texto" value="{{alternativa.texto}}" required>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <!-- Botones -->
+                        <div class="d-flex flex-row-reverse mt-3">
+                            <button type="submit" class="btn btn-primary ms-2">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+{% endblock %}
+
+
+
+

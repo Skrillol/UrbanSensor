@@ -1,0 +1,113 @@
+{% extends "./base.html" %}
+
+{% block tabla %}
+
+<div class="card">
+    <h5 class="card-header">Creacio de Encuesta</h5>
+        <div class="card-body">
+
+            <div class="row">
+                <div class="bg-danger col-sm-5">
+                    <div class="card">
+                        <div class="card-body">
+                                <h5 class="card-title">Informacion de Encuesta</h5>
+                                <p class="card-text">Titulo: <h6>{{encuesta.titulo}}</h6></p>
+                                <label for="encuesta_descripcion">Descripción:</label><br>
+                                <textarea id="encuesta_descripcion" name="encuesta_descripcion" rows="5" cols="27" readonly>{{ encuesta.descripcion }}</textarea>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-dark col-sm-7">
+                    <!-- Información de la Pregunta -->
+                    <div class="card mb-3" style="width: 100%;">
+                        <div class="card-body">
+                            <h5 class="card-title">Información de Pregunta</h5>
+                            <div class="mb-3">
+                                <label for="id_pregunta" class="form-label">ID de la Pregunta:</label>
+                                <input type="text" id="id_pregunta" name="id_pregunta" class="form-control" value="{{pregunta.id}}" readonly>
+                            </div>
+                            <p class="card-text">
+                                <strong>Título de la Pregunta:</strong> {{pregunta.texto}}
+                            </p>
+                            <p class="card-text">
+                                <strong>Tipo de Respuesta:</strong> {{pregunta.tipo_respuesta}}
+                            </p>
+                        </div>
+                    </div>
+            
+                    <form method="post" action="/alternativaCreate" id="form-alternativas">
+                        {% csrf_token %}
+                        
+                        <!-- Contenedor de Alternativas -->
+                        <div id="alternativas-container"></div>
+                    
+                        <!-- Botones -->
+                        <div class="d-flex flex-row-reverse mt-3">
+                            <button type="submit" class="btn btn-primary ms-2">Guardar</button>
+                            <button type="button" id="add-alternative" class="btn btn-success">Agregar Alternativa</button>
+                        </div>
+                    </form>
+                    
+                    <!-- Plantilla HTML -->
+                    <template id="alternative-template">
+                        <div class="card mt-3 alternative-card" style="width: 100%;">
+                            <div class="card-body">
+                                <h5 class="card-title">Información de Alternativa</h5>
+                                <div class="mb-3">
+                                    <input type="text" name="id_pregunta" id="id_pregunta" value="{{pregunta.id}}">
+                                    <label for="pregunta_titulo" class="form-label">Título de la Alternativa:</label>
+                                    <input type="text" class="form-control alternativa-input" name="alternativas[]" required>
+                                </div>
+                                <button type="button" class="btn btn-danger btn-sm remove-alternative">Eliminar</button>
+                            </div>
+                        </div>
+                    </template>
+                    
+                    <script>
+                        // Función para agregar una nueva alternativa desde la plantilla
+                        document.getElementById('add-alternative').addEventListener('click', function() {
+                            const container = document.getElementById('alternativas-container');
+                            const template = document.getElementById('alternative-template');
+                    
+                            // Clonar el contenido de la plantilla
+                            const newAlternative = template.content.cloneNode(true);
+                    
+                            // Agregarlo al contenedor
+                            container.appendChild(newAlternative);
+                        });
+                    
+                        // Función para eliminar una alternativa
+                        document.getElementById('alternativas-container').addEventListener('click', function(event) {
+                            if (event.target.classList.contains('remove-alternative')) {
+                                // Eliminar la tarjeta de alternativa correspondiente
+                                const card = event.target.closest('.alternative-card');
+                                if (card) {
+                                    card.remove();
+                                }
+                            }
+                        });
+                    </script>
+                    
+
+
+
+                </div>
+                
+                </div>
+            </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+{% endblock %}
+
+
+
+

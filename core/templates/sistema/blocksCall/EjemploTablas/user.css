@@ -1,0 +1,43 @@
+/* tablas */
+table{
+    border: solid 2px #000000;
+    font-size: 16px;
+    table-layout: fixed;
+    width: 100%;
+}
+
+thead{
+    background: #D9D9D9;
+}
+
+th{
+    padding: 0px 15px;
+    height: 50px;
+    border: solid 2px #000000;
+}
+
+td{
+    padding: 0px 13px;
+    border: solid 1px #000000;
+}
+
+/* Botones */
+.btnNuevo{
+    background: #64687D;
+    color: #ffffff;
+}
+.btnSubir{
+    background: #000000;
+    color: #ffffff;
+}
+.btnTabla{
+    float: right;
+    background: #ffffff;
+    color: #000000;
+    border-color: #000000;
+}
+.dowTable{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}

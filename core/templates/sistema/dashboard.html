@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Enlace a Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Dashboard - Urban Sensor</title>
+    <link rel="stylesheet" href="{% static 'styles.ccs' %}">
+    
+</head>
+
+<body>
+    <main>
+        <aside class="aside">
+            <div class="titulo">
+                <div>Yo soy un Titulo</div>
+                <div class="linea-horizontal"></div>
+            </div>
+            <div >
+                <div class="bg-transparent" style="width: 10px ; height: 10px;"></div>
+                    <div class="botonesLines">
+                    <div class="bg-transparent" style="width: 25px ; height: 50px;"></div>
+                    <button class="btnInfo btn" style="width: 182px; height: 50px; text-align: left; padding-inline: 3px;" type="button" onclick="window.location.href='';">
+                        <div id="p-Gestion"><img src="">Tickets Registrados</a></div>
+                    </button>
+                    <div class="bg-transparent" style="width: 20px ; height: 10px;"></div>
+                    <button class="btnInfo btn" style="width: 182px; height: 50px; text-align: left; padding-inline: 3px;" type="button" onclick="window.location.href='';">
+                        <div id="p-Gestion"><img src="">Tickets Asignados</a></div>
+                    </button>
+                    <div class="bg-transparent" style="width: 20px ; height: 10px;"></div>
+                    <button class="btnInfo btn" style="width: 182px; height: 50px; text-align: left; padding-inline: 3px;" type="button" onclick="window.location.href='';">
+                        <div id="p-Gestion"><img src="">Tickets En Proceso</a></div>
+                    </button>
+                    <div class="bg-transparent" style="width: 20px ; height: 10px;"></div>
+                    <button class="btnInfo btn" style="width: 182px; height: 50px; text-align: left; padding-inline: 3px;" type="button" onclick="window.location.href='';">
+                        <div id="p-Gestion"><img src="">Tickets Finalizados</a></div>
+                    </button>
+                </div>
+                
+                <div class="bg-transparent" style="width: 10px ; height: 10px;"></div>
+                <div class="botonesLines">
+                    <div class="bg-transparent" style="width: 25px ; height: 10px;"></div>
+                    <button class="btnInfo btn" style="width: 182px; height: 50px; text-align: left; padding-inline: 3px;" type="button" onclick="window.location.href='';">
+                        <div id="p-Gestion"><img src="">Tickets Cancelados</a></div>
+                    </button>
+                    <div class="bg-transparent" style="width: 20px ; height: 10px;"></div>
+                    <button class="btnInfo btn" style="width: 182px; height: 50px; text-align: left; padding-inline: 3px;" type="button" onclick="window.location.href='';">
+                        <div id="p-Gestion"><img src="">Total de Empleados</a></div>
+                    </button>
+                    <div class="bg-transparent" style="width: 20px ; height: 10px;"></div>
+                    <button class="btnInfo btn" style="width: 182px; height: 50px; text-align: left; padding-inline: 3px;" type="button" onclick="window.location.href='';">
+                        <div id="p-Gestion"><img src="">Total de Departamentos</a></div>
+                    </button>
+                    <div class="bg-transparent" style="width: 20px ; height: 10px;"></div>
+                    <button class="btnInfo btn" style="width: 182px; height: 50px; text-align: left; padding-inline: 3px;" type="button" onclick="window.location.href='';">
+                        <div id="p-Gestion"><img src="">Tickets Pendientes</a></div>
+                    </button>
+                </div>
+
+                <div class="bg-transparent" style="width: 10px ; height: 10px;"></div>
+                <div class="botonesLines">
+
+                        <div class="bg-transparent" style="width: 25px ; height: 10px;"></div>
+                        <button class="btnInfo btn" style="width: 182px; height: 50px; text-align: left; padding-inline: 3px;" type="button" onclick="window.location.href='';">
+                            <div id="p-Gestion"><img src="">Tickets Cerrados</a></div>
+                        </button>
+                        <div class="bg-transparent" style="width: 20px ; height: 10px;"></div>
+                        <button class="btnInfo btn" style="width: 182px; height: 50px; text-align: left; padding-inline: 3px;" type="button" onclick="window.location.href='';">
+                            <div id="p-Gestion"><img src="">Total de Equipos</a></div>
+                        </button>
+
+
+                    <div class="bg-transparent" style="width: 20px ; height: 10px;"></div>
+                    <button class="btnInfo btn" style="width: 182px; height: 50px; text-align: left; padding-inline: 3px;" type="button" onclick="window.location.href='';">
+                        <div id="p-Gestion"><img src="">Total de Empleados Activos</a></div>
+                    </button>
+                    <div class="bg-transparent" style="width: 20px ; height: 10px;"></div>
+                    <button class="btnInfo btn" style="width: 182px; height: 50px; text-align: left; padding-inline: 3px;" type="button" onclick="window.location.href='';">
+                        <div id="p-Gestion"><img src="">##RELLENAR##</a></div>
+                    </button>
+                </div>
+                <div class="linea-horizontal"></div>
+        </div>
+        <div class="bg-transparent" style="width: 100%; height: 10px; display: flex; flex-direction: row;"></div>
+            <div class="graficos">
+                <div class="bg-dark" style="max-width: 550px;min-width: 380px ; height: 370px;">
+                    <iframe name="barra" class="footer" src="http://127.0.0.1:3002/sistema/APIS/maps_google/maps.html" frameborder="0"></iframe>
+                </div>
+                <div class="bg-warning" style="max-width: 550px;min-width: 380px ; height: 300px;">
+                    <iframe name="barra1" class="footer" src="http://127.0.0.1:3002/sistema/APIS/graficos/graficoBarras/graficoBarras.html" frameborder="0" style="flex: 1; height: 100%;"></iframe>
+                </div>
+                <div class="bg-danger" style="max-width: 550px;min-width: 380px ; height: 370px;">
+                    <iframe name="barra2" class="footer" src="http://127.0.0.1:3002/sistema/APIS/graficos/graficoBarras/graficoDona.html" frameborder="0" style="flex: 1; height: 100%;"></iframe>
+                </div>
+                    
+            </div>
+        </aside>
+
+    </main>
+</body>

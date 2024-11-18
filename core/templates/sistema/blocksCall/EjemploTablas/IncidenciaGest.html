@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="user.css">
+    <title>Urban Sensor</title>
+</head>
+<body>
+    <section class="section">
+        <div class="contenidoGestion">
+            <h2>Incidencias</h2>
+            <div class="dowTable">
+                <button class="btnNuevo btn" type="button" onclick="window.location.href='newUser.html'">Nuevo</button>
+                <button class="btnSubir btn" type="button" onclick="saveIncidencias()">Subir</button>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Número</th>
+                            <th>Nombre</th>
+                            <th>Departamento</th>
+                            <th>Equipo Resolutor</th>
+                            <th>Estado</th>
+                            <th>Fecha añadido</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="incidenciasTableBody">
+                        <!-- Las filas de las incidencias se llenarán aquí -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="dowTable">
+                <a id="entriesCount">Mostrando 0 de 0 entradas</a>
+            </div>    
+        </div>
+    </section>
+
+    <script>
+        // Función para cargar las incidencias del localStorage
+        async function loadIncidencias() {
+            const incidencias = JSON.parse(localStorage.getItem('incidencias')) || [];
+            const tableBody = document.getElementById('incidenciasTableBody');
+            const entriesCount = document.getElementById('entriesCount');
+
+            tableBody.innerHTML = ''; // Limpiar la tabla
+
+            incidencias.forEach((incidencia, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td>${incidencia.nombre}</td>
+                    <td>${incidencia.departamento}</td>
+                    <td>${incidencia.equipoResolutor}</td>
+                    <td>${incidencia.estado}</td>
+                    <td>${incidencia.fechaAñadido}</td>
+                    <td>
+                        <button class="rueda btn" type="button" onclick="editIncidencia(${index})">
+                            <img title="Modificar" src="https://cdn4.iconfinder.com/data/icons/web-interface-4/512/Settings-512.png" height="30px">
+                        </button>
+                        <button class="btn btn-danger btn-sm" type="button" onclick="deleteIncidencia(${index})">Eliminar</button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+
+            entriesCount.textContent = `Mostrando ${incidencias.length} de ${incidencias.length} entradas`;
+        }
+
+        // Función para guardar las incidencias en el localStorage
+        async function saveIncidencias() {
+            const incidencias = JSON.parse(localStorage.getItem('incidencias')) || [];
+            const nuevaIncidencia = {
+                nombre: 'Incidencia ' + (incidencias.length + 1),
+                departamento: 'Soporte Técnico',
+                equipoResolutor: 'Equipo A',
+                estado: 'Pendiente',
+                fechaAñadido: new Date().toLocaleDateString()
+            };
+            incidencias.push(nuevaIncidencia);
+            localStorage.setItem('incidencias', JSON.stringify(incidencias));
+            await loadIncidencias(); // Recargar las incidencias
+        }
+
+        // Función para eliminar una incidencia
+        function deleteIncidencia(index) {
+            const incidencias = JSON.parse(localStorage.getItem('incidencias')) || [];
+            incidencias.splice(index, 1); // Eliminar la incidencia en la posición dada
+            localStorage.setItem('incidencias', JSON.stringify(incidencias)); // Guardar los cambios
+            loadIncidencias(); // Recargar la lista de incidencias
+        }
+
+        // Función para editar una incidencia
+        function editIncidencia(index) {
+            alert(`Editar incidencia en la posición: ${index}`);
+        }
+
+        // Cargar las incidencias al inicio
+        window.onload = () => {
+            // Comprobar si hay datos en localStorage, si no, agregar algunos ejemplos
+            if (!localStorage.getItem('incidencias')) {
+                const ejemplos = [
+                    {
+                        nombre: 'Incidencia 1',
+                        departamento: 'IT',
+                        equipoResolutor: 'Equipo A',
+                        estado: 'Resuelta',
+                        fechaAñadido: new Date().toLocaleDateString()
+                    },
+                    {
+                        nombre: 'Incidencia 2',
+                        departamento: 'Administración',
+                        equipoResolutor: 'Equipo B',
+                        estado: 'Pendiente',
+                        fechaAñadido: new Date().toLocaleDateString()
+                    },
+                    {
+                        nombre: 'Incidencia 3',
+                        departamento: 'Recursos Humanos',
+                        equipoResolutor: 'Equipo C',
+                        estado: 'En progreso',
+                        fechaAñadido: new Date().toLocaleDateString()
+                    },
+                    {
+                        nombre: 'Incidencia 4',
+                        departamento: 'Ventas',
+                        equipoResolutor: 'Equipo D',
+                        estado: 'Cerrada',
+                        fechaAñadido: new Date().toLocaleDateString()
+                    },
+                    {
+                        nombre: 'Incidencia 5',
+                        departamento: 'Marketing',
+                        equipoResolutor: 'Equipo E',
+                        estado: 'Revisar',
+                        fechaAñadido: new Date().toLocaleDateString()
+                    },
+                    {
+                        nombre: 'Incidencia 6',
+                        departamento: 'Logística',
+                        equipoResolutor: 'Equipo F',
+                        estado: 'Pendiente',
+                        fechaAñadido: new Date().toLocaleDateString()
+                    },
+                    {
+                        nombre: 'Incidencia 7',
+                        departamento: 'Calidad',
+                        equipoResolutor: 'Equipo G',
+                        estado: 'En progreso',
+                        fechaAñadido: new Date().toLocaleDateString()
+                    }
+                ];
+                localStorage.setItem('incidencias', JSON.stringify(ejemplos));
+            }
+            loadIncidencias();
+        };
+    </script>
+</body>
+</html>

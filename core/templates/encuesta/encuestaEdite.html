@@ -1,0 +1,37 @@
+{% extends "./base.html" %}
+
+{% block tabla %}
+
+
+
+<div class="card">
+    <h5 class="card-header">Creacio de Encuesta</h5>
+        <div class="card-body">
+
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <form action="/encuestaEdit" method="POST">
+                                {% csrf_token %}
+                                <h5 class="card-title">Informacion de Encuesta</h5>
+                                <input type="hidden" id="encuesta_id" name="encuesta_id" value="{{encuesta.id}}">
+                                <p class="card-text">Titulo: <input type="text" id="encuesta_titulo" name="encuesta_titulo" value="{{encuesta.titulo}}"></p>
+
+                                <label for="encuesta_descripcion">Descripcion:</label><br>
+                                <textarea id="encuesta_descripcion" name="encuesta_descripcion" rows="5" cols="27" placeholder="{{encuesta.descripcion}}"></textarea>
+                                
+                                <button type="submit" class="btn btn-primary">Aceptar</button>
+                                
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+            </div>
+        
+    </div>
+</div>
+
+{% endblock %}

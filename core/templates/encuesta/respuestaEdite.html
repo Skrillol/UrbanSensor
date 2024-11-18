@@ -1,0 +1,82 @@
+{% extends "./base.html" %}
+
+{% block tabla %}
+
+<h1>{{pregunta.id}} {{pregunta.texto}} {{pregunta.tipo_respuesta}}</h1>
+
+<div class="card">
+    <h5 class="card-header">Creacio de Encuesta</h5>
+        <div class="card-body">
+
+            <div class="row">
+                <div class="bg-danger col-sm-5">
+                    <div class="card">
+                        <div class="card-body">
+                                <h5 class="card-title">Informacion de Encuesta</h5>
+                                <p class="card-text">Titulo: <h6>{{encuesta.titulo}}</h6></p>
+                                <label for="encuesta_descripcion">Descripción:</label><br>
+                                <textarea id="encuesta_descripcion" name="encuesta_descripcion" rows="5" cols="27" readonly>{{ encuesta.descripcion }}</textarea>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-dark col-sm-7">
+                    <!-- Información de la Pregunta -->
+                    <div class="card mb-3" style="width: 100%;">
+                        <div class="card-body">
+                            <h5 class="card-title">Información de Pregunta</h5>
+                            <div class="mb-3">
+                                <label for="id_pregunta" class="form-label"><strong>ID de la Pregunta:   </strong>{{pregunta.id}}</label>
+                            </div>
+                            <p class="card-text">
+                                <strong>Título de la Pregunta:</strong> {{pregunta.texto}}
+                            </p>
+                            <p class="card-text">
+                                <strong>Tipo de Respuesta:</strong> {{pregunta.tipo_respuesta}}
+                            </p>
+                        </div>
+                    </div>
+            
+                    <form method="post" action="/respuestaEdit2" id="form-alternativas">
+                        {% csrf_token %}
+                        
+                        <div class="card mt-3 alternative-card" style="width: 100%;">
+                            <div class="card-body">
+                                <h5 class="card-title">Información de Respuesta </h5>
+                                <div class="mb-3">
+
+                                    <input type="hidden" name="id_respuesta" id="id_respuesta" value="{{respuesta.id}}">
+
+                                    {% if pregunta.tipo_respuesta == "ALTERNATIVA" %}
+                                    <label for="pregunta_titulo" class="form-label">Título de la Respuesta:</label>
+                                    <input type="text" class="form-control alternativa-input" id="respuesta_alternativa" name="respuesta_alternativa" value="{{respuesta.respuesta_alternativa}}" required readonly>
+                                    {% endif %}
+
+                                    {% if pregunta.tipo_respuesta == "TEXTO" %}
+                                    <label for="pregunta_titulo" class="form-label">Título de la Respuesta:</label>
+                                    
+                                    <input type="text" class="form-control alternativa-input" id="respuesta_texto" name="respuesta_texto" value="{{respuesta.respuesta_texto}}" required readonly>
+                                    {% endif %}
+
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <!-- Botones -->
+                        <div class="d-flex flex-row-reverse mt-3">
+                            <button type="submit" class="btn btn-primary ms-2">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}
+
+
+
+

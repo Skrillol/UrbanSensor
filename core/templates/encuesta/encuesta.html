@@ -1,0 +1,118 @@
+{% extends "./encuesta/base.html" %}
+
+{% block tabla %}
+<ul>
+    {% for a in tabla_Encuesta %}
+    <li>{{a.id}} {{a.titulo}} {{a.descripcion}}</li>
+    {% endfor %}
+</ul>
+---------------------------------------------------------
+<ul>
+    {% for b in tabla_Pregunta %}
+    <li>{{b.id}} {{b.encuesta}} {{b.texto}} {{b.tipo_respuesta}}</li>
+    {% endfor %}
+</ul>
+---------------------------------------------------------
+<ul>
+    {% for c in tabla_Alternativa %}
+    <li>{{c.id}} {{c.pregunta}} {{c.texto}}</li>
+    {% endfor %}
+</ul>
+---------------------------------------------------------
+<ul>
+    {% for d in tabla_Respuesta %}
+    <li>{{d.id}} {{d.pregunta}} {{d.respuesta_texto}} {{d.respuesta_alternativa}}</li>
+    {% endfor %}
+</ul>
+
+<table class="table">
+    <thead>
+        <th>id</th>
+        <th>titulo</th>
+        <th>descripcion</th>
+        <th colspan="3">Editar</th>
+    </thead>
+    {% for a in tabla_Encuesta %}
+    <tbody>
+        <td>{{a.id}}</td>
+        <td>{{a.titulo}}</td>
+        <td>{{a.descripcion}}</td>
+        <td><a href="/encuestaEdite/{{a.id}}" class="btn btn-primary">Editar</a></td>
+        <td><a href="/encuestaDelete/{{a.id}}" class="btn btn-danger">Eliminar</a></td>
+        <td><a href="/preguntaNew/{{a.id}}" class="btn btn-success">Agregar Pregunta</a></td>
+        <td><a href="/encuestaResponder/{{a.id}}" class="btn btn-dark">Respnder Encuesta</a></td>
+    </tbody>
+    {% endfor %}
+  </table>
+
+
+  <table class="table">
+    <thead>
+      <th>id</th>
+      <th>encuesta</th>
+      <th>texto</th>
+      <th>tipo_respuesta</th>
+      <th colspan="3">Editar</th>
+    </thead>
+    {% for a in tabla_Pregunta %}
+    <tbody>
+      <td>{{ a.id }}</td>
+      <td>{{ a.encuesta }}</td>
+      <td>{{ a.texto }}</td>
+      <td>{{ a.tipo_respuesta }}</td>
+      <td><a href="/preguntaEdit/{{ a.id }}" class="btn btn-primary">Editar</a></td>
+      <td><a href="/preguntaDelete/{{ a.id }}" class="btn btn-danger">Eliminar</a></td>
+      {% if a.tipo_respuesta == "ALTERNATIVA" %}
+      <td><a href="/alternativaNew/{{ a.id }}" class="btn btn-success">Agregar alternativa</a></td>
+      {% endif %}
+    </tbody>
+    {% endfor %}
+  </table>
+  
+  
+  <table class="table">
+    <thead>
+        <th>id</th>
+        <th>pregunta</th>
+        <th>texto</th>
+        <th colspan="2">Editar</th>
+    </thead>
+    {% for a in tabla_Alternativa %}
+    <tbody>
+        <td>{{a.id}}</td>
+        <td>{{a.pregunta}}</td>
+        <td>{{a.texto}}</td>
+        <td><a href="/alternativaEdit/{{ a.id }}" class="btn btn-primary">Editar</a></td>
+        <td><a href="/alternativaDelete/{{ a.id }}" class="btn btn-danger">Eliminar</a></td>
+    </tbody>
+    {% endfor %}
+  </table>
+
+  <table class="table">
+    <thead>
+        <th>id</th>
+        <th>pregunta</th>
+        <th>respuesta_texto</th>
+        <th>respuesta_alternativa</th>
+        <th colspan="2">Editar</th>
+    </thead>
+    {% for a in tabla_Respuesta %}
+    <tbody>
+        <td>{{a.id}}</td>
+        <td>{{a.pregunta}}</td>
+        <td>{{a.respuesta_texto}}</td>
+        <td>{{a.respuesta_alternativa}}</td>
+        <td><a href="/respuestaEdit/{{ a.id }}" class="btn btn-primary">Editar</a></td>
+        <td><a href="/respuestaDelete/{{ a.id }}" class="btn btn-danger">Eliminar</a></td>
+    </tbody>
+    {% endfor %}
+  </table>
+
+
+
+  
+{% endblock %}
+
+
+
+

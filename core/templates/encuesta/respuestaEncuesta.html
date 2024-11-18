@@ -1,0 +1,79 @@
+{% extends "./base.html" %}
+
+{% block tabla %}
+<div class="card">
+    <h5 class="card-header">Creación de Encuesta</h5>
+    <div class="card-body">
+        <form method="POST" action="/encuestaResponder2">
+            {% csrf_token %}
+            
+            <!-- Campo oculto para enviar el ID de la encuesta -->
+            <input type="hidden" name="encuesta_id" value="{{ encuesta.id }}">
+
+            <div class="row">
+                <div class="bg-danger col-sm-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Información de Encuesta</h5>
+                            <p class="card-text">Título: <h6>{{ encuesta.titulo }}</h6></p>
+                            <label for="encuesta_descripcion">Descripción:</label><br>
+                            <textarea id="encuesta_descripcion" name="encuesta_descripcion" rows="5" cols="27" readonly>{{ encuesta.descripcion }}</textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-dark col-sm-7">
+                    <!-- Información de la Pregunta -->
+                    {% for pregunta in preguntas %}
+                    <div class="card mb-3" style="width: 100%;">
+                        <div class="card-body">
+                            <h5 class="card-title">Información de Pregunta</h5>
+                            <div class="mb-3">
+                                <strong>ID de la Pregunta:</strong> {{ pregunta.id }}
+                            </div>
+                            <p class="card-text">
+                                <strong>Título de la Pregunta:</strong> {{ pregunta.texto }}
+                            </p>
+                            <p class="card-text">
+                                <strong>Tipo de Respuesta:</strong> {{ pregunta.tipo_respuesta }}
+                            </p>
+                
+                            {% if pregunta.tipo_respuesta == "ALTERNATIVA" %}
+                                <div class="mb-3">
+                                    <label for="respuesta_{{ pregunta.id }}" class="form-label">Opciones:</label>
+                                    {% for alternativa in pregunta.alternativas.all %}
+                                        <div style="margin-bottom: 10px;">
+                                            <input type="radio" id="opcion_{{ alternativa.id }}" name="respuesta_{{ pregunta.id }}" value="{{ alternativa.id }}">
+                                            <label for="opcion_{{ alternativa.id }}">{{ alternativa.texto }}</label>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            {% elif pregunta.tipo_respuesta == "TEXTO" %}
+                                <div class="mb-3">
+                                    <label for="respuesta_texto_{{ pregunta.id }}" class="form-label">Descripción:</label>
+                                    <textarea id="respuesta_texto_{{ pregunta.id }}" name="respuesta_{{ pregunta.id }}" rows="5" cols="27" placeholder="Escribe aquí una breve descripción"></textarea>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+                
+
+                    <!-- Botones -->
+                    <div class="d-flex flex-row-reverse mt-3">
+                        <button type="submit" class="btn btn-primary ms-2">Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+{% endblock %}
+
+
+
+

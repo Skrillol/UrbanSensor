@@ -1,0 +1,27 @@
+.Font{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-display: center;
+}
+.dowTable{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tcard{
+    height: 100px;
+}
+body{
+    background: white;
+
+}
+.centrado{
+    text-align: center;
+    vertical-align: center;
+}
+
+.position{
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    
+}

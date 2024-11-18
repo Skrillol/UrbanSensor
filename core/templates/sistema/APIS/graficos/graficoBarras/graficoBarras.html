@@ -1,0 +1,52 @@
+<div>
+    <canvas id="myChart"></canvas>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <script>
+    const ctx = document.getElementById('myChart');
+
+    Chart.defaults.backgroundColor = '#9BD0F5';
+    Chart.defaults.borderColor = '#36A2EB';
+    Chart.defaults.color = '#000';
+  
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['A', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [
+        {
+          label: 'Data1',
+          data: [12, 3, 5, 2, 3],
+          borderWidth: 2,
+          borderColor: '#999',
+          backgroundColor: '#000',
+        },
+        {
+          label: 'Data2',
+          data: [12, 19, 3, 5, 2, 3],
+          borderWidth: 1,
+          borderColor: '#555',
+          backgroundColor: '#02',
+        }
+    ]
+        
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      },
+        plugins: {
+            colors: {
+            enabled: false
+            }
+        }
+    });
+  </script>
+  
+  
+  

@@ -1,0 +1,74 @@
+{% extends "./base.html" %}
+
+{% block tabla %}
+
+{{encuesta.id}}   |   {{encuesta.titulo}}   |   {{encuesta.descripcion}}
+
+<div class="card">
+    <h5 class="card-header">Creacio de Encuesta</h5>
+        <div class="card-body">
+
+            <div class="row">
+                <div class="bg-danger col-sm-5">
+                    <div class="card">
+                        <div class="card-body">
+
+                                <h5 class="card-title">Informacion de Encuesta</h5>
+                                <p class="card-text">Titulo: <h6>{{encuesta.titulo}}</h6></p>
+
+                                <label for="encuesta_descripcion">Descripción:</label><br>
+                                <textarea id="encuesta_descripcion" name="encuesta_descripcion" rows="5" cols="27" readonly>{{ encuesta.descripcion }}</textarea>
+                                
+                                
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-dark col-sm-7">
+                    <div class="card" style="width: 100%;">
+                        <div class="card-body">
+                            <form action="/preguntaCreate" method="POST">
+                                {% csrf_token %}
+                                <h5 class="card-title">
+                                    Información de Pregunta  
+                                    <button type="submit" class="btn btn-primary">Agregar Pregunta</button>
+                                </h5>
+                                
+                                <input type="hidden" id="id_pregunta" name="id_pregunta" value="{{encuesta.id}}">
+
+                                <p class="card-text">
+                                    <label for="pregunta_titulo">Título de la Pregunta:</label>
+                                    <input type="text" id="pregunta_titulo" name="pregunta_titulo" class="form-control">
+                                </p>
+
+                                <!-- Tipo de respuesta -->
+                                <label for="tipo_respuesta">Tipo de Respuesta:</label>
+                                <select id="tipo_respuesta" name="tipo_respuesta" class="form-select">
+                                    <option value="ALTERNATIVA">Alternativa</option>
+                                    <option value="TEXTO">Texto</option>
+                                </select>
+                            
+                                <!-- Botón para enviar -->
+                                <button type="submit" class="btn btn-primary">Aceptar</button>
+                            </form>
+                            
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+        
+    </div>
+</div>
+
+
+
+{% endblock %}
+
+
+
+

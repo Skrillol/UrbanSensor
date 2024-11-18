@@ -1,0 +1,138 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Enlace a Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Urban Sensor</title>
+    <link rel="stylesheet" href="{% static 'user.css' %}">
+    
+    
+<body>
+        <section class="section">
+            <div class="contenidoGestion">
+                Incidencias<br>
+                <div class="dowTable">
+                    <div class="bg-transparent" style="width:20px; height: 10px;"></div>
+                    <button id="btnModalNuevo" class="btn btnNuevo">Nuevo</button>
+                    <div id="modalNuevo" class="modal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            Creación de nueva incidencia
+                            <label for="numIncidencia">Número:</label>
+                            <input type="inputSearch" id="numIncidencia" placeholder="Número">
+                            <label for="nombreIncidencia">Nombre:</label>
+                            <input type="inputSearch" id="nombreIncidencia" placeholder="Nombre">
+                            <label for="departamentoIncidencia">Departamento:</label>
+                            <input type="inputSearch" id="departamentoIncidencia" placeholder="Departamento">
+                            <label for="eqResIncidencia">Equipo Resolutor:</label>
+                            <input type="inputSearch" id="eqResIncidencia" placeholder="Equipo Resolutor">
+                            <label for="estadoIncidencia">Estado:</label>
+                            <input type="inputSearch" id="estadoIncidencia" placeholder="Estado">
+                            <label for="fechaIncidencia">Fecha añadido:</label>
+                            <input type="inputSearch" id="fechaIncidencia" placeholder="Fecha añadido">
+                            <button id="btnGuardar" class="btnGuardar  btn" type="submit">Guardar</button>
+                        </div>
+                    </div>
+                    <div class="bg-transparent" style="width:10px; height: 10px;"></div>
+                    <button class="btnSubir btn" type="submit" >Subir</button>
+                </div>
+
+                <div class="bg-transparent" style="width: 100% ; height: 10px;"></div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Número</th>
+                            <th>Nombre</th>
+                            <th>Departamento</th>
+                            <th>Equipo Resolutor</th>
+                            <th>Estado</th>
+                            <th>Fecha añadido</th>
+                            <th>Ver más</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Default</td>
+                            <td>Default</td>
+                            <td>Default</td>
+                            <td>Default</td>
+                            <td>Default</td>
+                            <td>Default</td>
+                            <td><button class="rueda btn" type="submit"><img title="Modificar" src="https://cdn4.iconfinder.com/data/icons/web-interface-4/512/Settings-512.png" height="30px"></button></td>
+                        </tr>
+                        <tr>
+                            <td>Default</td>
+                            <td>Default</td>
+                            <td>Default</td>
+                            <td>Default</td>
+                            <td>Default</td>
+                            <td>Default</td>
+                            <td><button class="rueda btn" type="submit"><img title="Modificar" src="https://cdn4.iconfinder.com/data/icons/web-interface-4/512/Settings-512.png" height="30px"></button></td>
+                        </tr>
+                        <tr>
+                            <td>Default</td>
+                            <td>Default</td>
+                            <td>Default</td>
+                            <td>Default</td>
+                            <td>Default</td>
+                            <td>Default</td>
+                            <td><button class="rueda btn" type="submit"><img title="Modificar" src="https://cdn4.iconfinder.com/data/icons/web-interface-4/512/Settings-512.png" height="30px"></button></td>
+                        </tr>
+                        <tr>
+                            <td>Default</td>
+                            <td>Default</td>
+                            <td>Default</td>
+                            <td>Default</td>
+                            <td>Default</td>
+                            <td>Default</td>
+                            <td><button class="rueda btn" type="submit"><img title="Modificar" src="https://cdn4.iconfinder.com/data/icons/web-interface-4/512/Settings-512.png" height="30px"></button></td>
+                        </tr>
+                        <tr>
+                        </tr>
+                            <td>Default</td>
+                            <td>Default</td>
+                            <td>Default</td>
+                            <td>Default</td>
+                            <td>Default</td>
+                            <td>Default</td>
+                            <td><button class="rueda btn" type="submit"><img title="Modificar" src="https://cdn4.iconfinder.com/data/icons/web-interface-4/512/Settings-512.png" height="30px"></button></td>
+                        </tr>
+
+                        
+                    </tbody>
+                </table>
+
+                <div class="bg-transparent" style="width: 20px ; height: 10px;"></div>
+                <div class="dowTable">
+                    <div class="bg-transparent" style="min-width: 20px;max-width: 20px; height: 10px;"></div>
+                    <a>Mostrando 5 de 5 entradas</a>                    
+                    <div class="bg-transparent" style="width:calc(75vh - 300px); height: 10px;"></div>
+                    <button class="btnTabla btn rounded" type="submit">Siguiente</button>
+                    <div class="bg-transparent" style="width: 20px ; height: 10px;"></div>
+                    <button class="btnTabla btn" type="submit">Anterior</button>
+                </div>    
+            </div>
+        </section>
+    </main>
+    <script>
+        var modal = document.getElementById("modalNuevo");
+        var btnOpen = document.getElementById("btnModalNuevo");
+        var btnGuardar = document.getElementById("btnGuardar");
+        var span=document.getElementsByClassName("close")[0];
+        btnOpen.onclick=function(){
+            modal.style.display="block";
+        }
+        span.onclick=function(){
+            modal.style.display="none";
+        }
+        btnGuardar.onclick=function(){
+            modal.style.display="none";
+        }
+    </script>
+
+
+</body>
